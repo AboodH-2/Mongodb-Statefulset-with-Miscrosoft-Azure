@@ -1,0 +1,10 @@
+kubectl get svc
+kubectl get pods
+kubectl exec -it mongodb-* -- /bim/bash
+kubectl cp bookstore.json mongodb-*:/data
+kubectl scale statefulset mongodb --replicas=2
+kubectl delete po mongodb-*
+
+kubectl exec -it mongodb-* --/bin/bash
+kubectl cp bookstore.json mongodb-*:/data
+mongoimport --db bookstore --collection books --file data/bookstore.json --jsonArray

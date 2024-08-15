@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: capp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: capp
+  template:
+    metadata:
+      labels:
+        app: capp
+    spec:
+      containers:
+      - name: capp
+        image: aboodh/capp:azure
+        ports:
+        - containerPort: 5000
